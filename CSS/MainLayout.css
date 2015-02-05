@@ -1,0 +1,37 @@
+div.top{
+	height: 5pt;
+	background-color: #bbd6ea;
+}
+div.whitespace{
+	height: 90px;
+}
+img#logo{
+	float: left;
+}
+div.Slogan{
+	float: right;
+}
+ul.topBorder{
+	height: 35px;
+	background-color: #1b4164;
+}
+div.topBorder2{
+	height: 5pt;
+	background-color: rgb(107, 33, 23);
+}
+ul.topBorder li{
+	display: inline;
+	color: white;
+}
+img#right{
+	float: right;
+}
+ul.bottomBorder{
+	height: 60pt;
+	background-color: #1b4164;
+}
+ul.bottomBorder li{
+	border: 3px solid rgb(107, 33, 23) ;
+	display: inline;
+	color: white;
+}
