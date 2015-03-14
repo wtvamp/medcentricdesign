@@ -1,24 +1,13 @@
-
-body {
-    margin: 0;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    background-color: #FFFFFF;
-}
-div {
-    display: block;
-}
-div.top{
-    height: 5pt;
-    background-color: #bbd6ea;
-}
-div.whitespace{
+/* Header Stuff */
+div.logoContainer{
     height: 90px;
+    border-top: 5pt solid #bbd6ea;
 }
 img#logo{
     float: left;
     margin-left: 150pt;
 }
-div.Slogan{
+div.slogan{
     float: right;
     margin-right: 150pt;
     font-family: 'Dancing Script', cursive;
@@ -27,124 +16,178 @@ div.Slogan{
     word-spacing: 0.06em;
     color: #1b4164;
 }
-div.TOPhone{
+div.topPhone{
     font-size: 18px;
     text-align: right;
     word-spacing: 0.01em;
     color: rgb(107, 33, 23);
 }
-div.nav{
-    height: 35px;
-    background-color: #1b4164;
-    text-align: center;
-    width: auto;
-    margin: 0 auto;
+
+/* Updated menu - less HTML Markup */
+nav {
+    float:left;
+    width:100%;
+    border-bottom:6pt solid #6B2117;
+    overflow:hidden;
+    position:relative;
+    background-color: #1B4164;
 }
-div.nav-content {
-    width: 900px;
-    margin: auto;
+nav ul {
+    clear:left;
+    float:left;
+    list-style:none;
+    margin:0;
+    padding:0;
+    position:relative;
+    left:50%;
+    text-align:center;
+}
+nav ul li {
+    display:block;
+    float:left;
+    list-style:none;
+    margin:0;
+    padding:0;
+    position:relative;
+    right:50%;
+}
+nav ul li a {
+    display:block;
+    margin:0 0 0 1px;
+    padding:3px 10px;
+    background:transparent;
+    color:white;
+    text-decoration:none;
+    line-height:1.3em;
+}
+nav ul li a:hover {
+    background:white;
+    color:#780032;
+}
+nav ul li a.active,
+nav ul li a.active:hover {
+    color:#780032;
+    background:white;
 }
 
-li {
-    display: list-item;
-    text-align: center;
-    color: white;
-}
-li.nav-button {
+/* WHAT FOLLOWS BELOW IS AN EXAMPLE OF A SIMPLE RESPONSIVE GRID LAYOUT */
+
+/* Float all the classes that start with "col-" (columns) to the left */
+[class*='col-'] {
     float: left;
-    list-style: none;
-    color: white;
-    margin: 15pt;
-}
-span{
-    color: white;
-}
-a {
-    color: #FFFFFF;
-    font-family: Trebuchet MS, verdana, sans-serif;
-    font-size: 12pt;
-    line-height: 120%;
-    text-decoration: none;
-    display: block;
-}
-a:-webkit-any-link {
-    color: -webkit-link;
-    text-decoration: underline;
-    cursor: auto;
-}
-a.rollHome {
-    width: 150px;
-    height: 35px;
-    text-decoration: none;
-}
-a.rollProducts {
-    width: 150px;
-    height: 35px;
-    text-decoration: none;
-}
-a.rollWhyMed {
-    width: 150px;
-    height: 35px;
-    text-decoration: none;
-}
-a.rollContact {
-    width: 150px;
-    height: 35px;
-    text-decoration: none;
-}
-div.topBorder2{
-    height: 5pt;
-    background-color: rgb(107, 33, 23);
-    width: 100%;
-}
-div.Image{
-    display: block;
-}
-img.align-left{
-    float: left;
-    width: 28%;
-    height: 563px;
-}
-img.center{
-    float: left;
-    width: 44%;
-    height: 563px;
-}
-img.align-right{
-    float: left;
-    width: 28%;
-    height: 563px;
-}
-div.thumbnail img{
-    width: 118px;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    display: block;
-    margin: 0 auto;
 }
 
+/* Border-box makes grids easier down to IE8 - we might add a polyfill for IE7 and lower later */
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
-.footerTable{
-    width: 100%;
+/* These define column widths and are meant to be constants - but the list can be added to as needed */
+
+.col-2-3 {
+    width: 40%;
 }
-#footer a {
-    color: #FFFFFF;
-    text-decoration: none;
+.col-1-3 {
+    width: 30%;
 }
-#footer {
-    width: 100%;
-    height: 60pt;
-    background-color: #1b4164;
-    text-align: center;
+
+.col-1-5 {
+    width: 20%;
+}
+
+/* Clearing after grids to prevent collapsing height */
+.grid:after {
+    content: "";
+    display: table;
     clear: both;
-    margin: 0 auto;
-    padding-top: 0px;
-    color: #FFFFFF;
-    font-family: Trebuchet MS, verdana, sans-serif;
-    font-size: 10pt;
 }
-ul.footerDisclaimer li{
-    display: inline;
-    color: white;
+
+/* Making images in the main content container fill the correct amount of space */
+.mainContent .col-1-3 img {
+    width: 100%;
+    height: 300pt
+}
+
+/* The next four rules add a gutter to the internalImages grid - we could also add a default gutter to all grids, or do
+   it only for specific grids, like the internalImages grid below.  */
+
+/* Internal gutter - put right 15pt on all columns */
+.internalImages [class*='col-'] {
+    padding-right: 15pt;
+}
+
+/* Except the last column */
+.internalImages [class*='col-']:last-of-type {
+    padding-right: 0;
+}
+
+/* External gutter */
+.internalImages.grid-pad {
+    padding: 15pt 0 15pt 15pt;
+}
+
+/* External gutter needs to re-add padding to the last column */
+.internalImages [class*='col-']:last-of-type {
+    padding-right: 15pt;
+}
+
+/* Stretch images inside internalImages to fit available space. */
+.internalImages .col-1-5 img {
+    width: 100%;
+    height: 90pt;
+}
+
+.preferredPartners {
+    background-color: gray;
+    padding: 15pt;
+    width: 100%;
+}
+
+/* Stretch images inside internalImages to fit available space. */
+.preferredPartnersImages .col-1-5 img {
+    width: 100%;
+    height: 45pt;
+}
+
+
+/* Internal gutter - put right 15pt on all columns */
+.preferredPartnersImages [class*='col-'] {
+    padding-right: 6pt;
+}
+
+/* Except the last column */
+.preferredPartnersImages [class*='col-']:last-of-type {
+    padding-right: 0;
+}
+
+/* External gutter */
+.preferredPartnersImages.grid-pad {
+    padding: 6pt 0 6pt 6pt;
+}
+
+/* External gutter needs to re-add padding to the last column */
+.preferredPartnersImages [class*='col-']:last-of-type {
+    padding-right: 6pt;
+}
+
+
+/* Clearing after to prevent collapsing height */
+.preferredPartners:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Fixing up bottom nav menu */
+.preferredPartners nav {
+    background-color:transparent;
+    border-bottom: none;
+}
+
+footer {
+padding: 3pt;
+text-align: center;
+font-size: 9pt;
 }
